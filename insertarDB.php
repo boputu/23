@@ -20,7 +20,7 @@
     echo "Conferencia: ".$fila["Conferencia"]."</br>";
     echo "Division: ".$fila["Division"]."</br>";
     echo "<a href='actualizar.php?Nombre=".$fila["Nombre"]."&Ciudad=".$fila["Ciudad"]."&Conferencia=".$fila["Conferencia"]."&Division=".$fila["Division"]."'>Actualizar Registro</a></br>";
-    echo "<a href='borrar.php?Nombre=".$fila["Nombre"]."'>Borrar Registro</a>";
+    echo "<a href='listaequipos.php?Nombre=".$fila["Nombre"]."'>Borrar Registro</a>";
   }else{
     echo "Error en la insercion";
   }

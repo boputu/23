@@ -25,10 +25,24 @@ class dbNBA
     return $this->error;
   }
   //function insercion contra la tabla usuarios
-  public function devolverUltimoEquipo($nombre){
+  public function devolverUltimoEquipo($equipo){
     if($this->error==false){
-      $resultado = $this->conexion->query("SELECT * FROM equipos WHERE Nombre=' ".$nombre." ' ");
+      $resultado = $this->conexion->query("SELECT * FROM equipos WHERE Nombre=' ".$equipo." ' ");
       return $resultado;
+    }else{
+      return null;
+    }
+  }
+
+
+  function devolverEquipos(){
+    $tabla=[];
+    if($this->error==false){
+      $resultado = $this->conexion->query("SELECT * FROM equipos");
+      while($fila=$resultado->fetch_assoc()){
+        $tabla[]=$fila;
+      }
+      return $tabla;
     }else{
       return null;
     }
@@ -63,18 +77,12 @@ class dbNBA
     }
   }
   //function borrar contra la tabla equipos
-  public function borrarEquipo($nombre){
-    if($this->error==false)
-    {
-      $insert_sql="DELETE FROM equipos WHERE Nombre=' ".$nombre." ' ";
+  public function borrarEquipo($equipo){
+      $insert_sql="DELETE FROM equipos WHERE Nombre=' ".$equipo." ' ";
       if (!$this->conexion->query($insert_sql)) {
         echo "Falló el borrado del usuario: (" . $this->conexion->errno . ") " . $this->conexion->error;
         return false;
       }
-      return true;
-    }else{
-      return false;
     }
-  }
 }
  ?>

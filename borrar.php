@@ -11,7 +11,7 @@
   //insertar un usuario
   $resultadoBorrar=$user->borrarEquipo($_GET["Nombre"]);
   //Devolver el usuario insertado
-  if($resultadoBorrar==true){
+  if($resultadoBorrar==false){
     echo "Registro ".$_GET["Nombre"]." borrado";
   }else{
     echo "Error en el borrado";
